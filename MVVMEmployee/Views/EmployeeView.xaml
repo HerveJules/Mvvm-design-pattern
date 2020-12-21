@@ -49,29 +49,34 @@
         <TextBox x:Name="txtAge"
                  Grid.Row="3"
                  Grid.Column="1"
-                 Text="{Binding Path=CurrentEmployee.Age}"
+                 Text="{Binding Path=CurrentEmployee.Age, Mode=TwoWay}"
                  ToolTip="Enter your Age" Margin="5,8" Padding="3"/>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="4"
                     Grid.Column="1">
             <Button x:Name="btnAdd"
-                    Content="ADD" Margin="5,8" Padding="3"/>
+                    Content="ADD" Margin="5,8" Padding="3"
+                    Command="{Binding Path=SaveCommand}"/>
             <Button x:Name="btnUpdate"
-                    Content="UPDATE" Margin="5,8" Padding="3"/>
+                    Content="UPDATE" Margin="5,8" Padding="3"
+                    Command="{Binding Path=UpdateCommand}"/>
             <Button x:Name="btnDelete"
-                    Content="DELETE" Margin="5,8" Padding="3"/>
+                    Content="DELETE" Margin="5,8" Padding="3"
+                    Command="{Binding Path=DeleteCommand}"/>
             <Button x:Name="btnSearch"
-                    Content="SEARCH" Margin="5,8" Padding="3"/>
+                    Content="SEARCH" Margin="5,8" Padding="3"
+                    Command="{Binding Path=SearchCommand}"/>
 
         </StackPanel>
         <TextBlock x:Name="txtBlockMessage"
                    Grid.Column="1"
-                   Grid.Row="5" Margin="5,8" Padding="3"/>
+                   Grid.Row="5" Margin="5,8" Padding="3"
+                   Text="{Binding Path=Message, Mode=TwoWay}"/>
         <DataGrid x:Name="dgEmployees"
                   AutoGenerateColumns="False"
                   Grid.Row="6"
                   Grid.Column="1" Margin="5,8" Padding="3"
-                  ItemsSource="{Binding Path=EmployeesList}"
+                  ItemsSource="{Binding Path=EmployeesList, Mode=TwoWay}"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Employee Id" Width="1*"
